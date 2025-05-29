@@ -31,7 +31,7 @@ form.addEventListener('submit', async function (e) {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({room,sender, receiver, content })
+        body: JSON.stringify({ room, sender, receiver, content })
       });
 
 
@@ -50,8 +50,16 @@ form.addEventListener('submit', async function (e) {
 
 // Incoming message from socket
 socket.on("receive_message", function (msg) {
+  const date = new Date(msg.sentAt);
+
+  const hours = date.getUTCHours(); // Use getHours() for local time
+  const minutes = date.getUTCMinutes();
+
+
   const item = document.createElement('li');
-  item.innerHTML = `<strong>${msg.sender.username}:</strong> ${msg.content}`;
+  item.innerHTML = `<strong>Me :</strong> ${msg.content}
+  <div class="message-time">${hours}:${minutes}</div>
+  `;
   messages.appendChild(item);
   messages.scrollTop = messages.scrollHeight;
 });

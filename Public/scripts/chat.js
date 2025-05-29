@@ -33,7 +33,7 @@ fetch("http://localhost:3000/user/", {
           const receiver = item.getAttribute('data-user-id');
           sessionStorage.setItem('receiver', receiver);
           const sender = sessionStorage.getItem('userId');
-         
+
 
           // make room between sender and receiver
           const roomName = [sender, receiver].sort().join("-");
@@ -55,9 +55,22 @@ fetch("http://localhost:3000/user/", {
               messages.innerHTML = "";
 
               data.forEach((msg) => {
-                const li = document.createElement('li');
-                li.innerHTML = `<strong>${msg.sender.username}:</strong> ${msg.content}`;
-                messages.appendChild(li);
+                const date = new Date(msg.sentAt);
+
+                const hours = date.getUTCHours(); // Use getHours() for local time
+                const minutes = date.getUTCMinutes();
+
+                const item = document.createElement('li');
+                if(msg.sender._id == sessionStorage.getItem('userId')){
+                  item.innerHTML = `<strong>Me:</strong> ${msg.content}
+                <div class="message-time">${hours}:${minutes}</div>
+                `;
+                }else{
+                  item.innerHTML = `<strong>${msg.sender.username}:</strong> ${msg.content}
+                <div class="message-time">${hours}:${minutes}</div>
+                `;
+                }
+                messages.appendChild(item);
                 messages.scrollTop = messages.scrollHeight;
               });
             })
