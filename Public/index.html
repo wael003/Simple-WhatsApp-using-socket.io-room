@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="./CSS/style.css" />
+  <title>Document</title>
+  <style>
+ 
+  </style>
+</head>
+<body>
+
+<div id="user-list-container">
+  <h3>Users</h3>
+  <ul id="user-list"></ul>
+</div>
+
+<div id="chat-container">
+  <h2>محادثة مباشرة</h2>
+  <ul id="messages"></ul>
+  <form id="form">
+    <input id="input" autocomplete="off" placeholder="اكتب رسالتك هنا..." />
+    <button id="send">Send</button>
+  </form>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="./scripts/chat.js"></script>
+<script src="./scripts/send.js"></script>
+<script>
+ 
+</script>
+</body>
+</html>

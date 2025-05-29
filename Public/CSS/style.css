@@ -1,0 +1,127 @@
+   /* Add this CSS to your existing style.css file or within the <style> tags */
+    body {
+      display: flex; /* Use flexbox to arrange the user list and chat */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f7f6;
+    }
+
+    #user-list-container {
+      width: 250px; /* Width of the user list sidebar */
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      overflow-y: auto; /* Enable scrolling for many users */
+    }
+
+    #user-list-container h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #eee;
+    }
+
+    #user-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #user-list li {
+      padding: 10px 15px;
+      cursor: pointer;
+      border-bottom: 1px solid #444;
+      transition: background-color 0.2s ease;
+    }
+
+    #user-list li:hover {
+      background-color: #555;
+    }
+
+    #user-list li.active {
+      background-color: #007bff; /* Highlight active user */
+      color: white;
+    }
+
+    #chat-container {
+      flex-grow: 1; /* Allows the chat container to take remaining space */
+      display: flex;
+      flex-direction: column;
+      height: 100vh; /* Full height */
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 20px;
+      overflow: hidden;
+    }
+
+    #chat-container h2 {
+      background-color: #007bff;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin: 0;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 20px;
+      overflow-y: auto;
+      flex-grow: 1;
+      background-color: #e9e9e9;
+    }
+
+    #messages li {
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      max-width: 70%;
+      word-wrap: break-word;
+    }
+
+    #messages li.mine {
+      background-color: #dcf8c6;
+      align-self: flex-end;
+      margin-left: auto;
+    }
+
+    #messages li.other {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      align-self: flex-start;
+      margin-right: auto;
+    }
+
+    #form {
+      display: flex;
+      padding: 15px;
+      border-top: 1px solid #eee;
+      background-color: #f0f0f0;
+    }
+
+    #input {
+      flex-grow: 1;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    #send {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.2s ease;
+    }
+
+    #send:hover {
+      background-color: #218838;
+    }
